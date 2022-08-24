@@ -1,0 +1,10 @@
+<p>carousel works!</p>
+<!--carousel es el hijo-->
+<p-carousel [value]="misImagenes">
+    <ng-template let-car pTemplate="item">
+        <img src="{{car}}" alt="" srcset="" style="width:50%; height:75%; margin:0 35%;">
+    </ng-template>
+</p-carousel>
+<!--el hijo tiene el template y lo envia al padre-->
+<label>Dato enviar a: <input #itemEnviar></label>
+<button label="iniciar sesion" (click)="agregarItem(itemEnviar.value)"></button>

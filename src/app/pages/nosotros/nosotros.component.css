@@ -1,0 +1,54 @@
+.container{
+    background-image: url(../../../assets/img/fondo.png);
+}
+
+.titulos{
+    margin-left: 250px;
+    margin-top: 40px;
+}
+
+.textos{
+    text-align: center;
+    margin-left: 250px;
+    margin-right: 250px;
+    text-align: center;
+
+}
+.texto-1{
+    text-align: left;
+    position: relative;
+}
+
+.texto-2{
+    text-align: right;
+    position: relative;
+    bottom: 350px;
+    
+}
+
+.imagenes{
+    text-align: center;
+    bottom: 300px;
+    position: relative;
+    margin-left: 20px;
+}
+
+.cuadro1{
+    text-align: right;
+   
+    position: relative;
+
+}
+
+.cuadro2{
+    text-align: left;   
+    bottom: 200px;
+    position: relative;
+}
+
+.cuadro3{
+    text-align: center;
+    bottom: 400px;
+    position: relative;
+
+}

@@ -1,0 +1,28 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-inicio></app-inicio>
+<app-footer></app-footer>
+
+<app-carousel [misImagenes]="imagenes"></app-carousel>
+
+<h1>ABAJO ESTÁ EL FIREBASE CON LOS CARD DE LIBROS</h1>
+<p-card header="Titulo" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+        
+    </ng-template>
+    <p *ngFor="let libro of coleccionDeLibros">{{libro.titulo}}</p>
+</p-card>
+
+<p-card header="Autor" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+        
+    </ng-template>
+    <p *ngFor="let libro of coleccionDeLibros">{{libro.autor}}</p>
+</p-card>
+
+<p-card header="Editorial" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+    <ng-template pTemplate="header">
+        
+    </ng-template>
+    <p *ngFor="let libro of coleccionDeLibros">{{libro.editorial}}</p>
+</p-card>
