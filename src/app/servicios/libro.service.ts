@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore,AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { Libro } from '../models/libro';
 import { map } from "rxjs/operators"
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -24,12 +25,12 @@ export class LibroService {
 
   /* clase del miercoles*/
   crearLibro(nuevolibro:Libro){
-    return new Promise((resolve,reject)=>{
+    return new Promise(async (resolve,reject)=>{
 
       try{
         const id = this.db.createId();
         nuevolibro.idLibro = id;
-        const resultado = this.libroCollection.doc(id).set(nuevolibro);
+        const resultado = await this.libroCollection.doc(id).set(nuevolibro);
         resolve(resultado);
       }
       catch(error){
@@ -40,5 +41,22 @@ export class LibroService {
     nuevolibro.idLibro = id;
 
     this.libroCollection.doc(id).set(nuevolibro);
+  }
+  
+  modificarLibro( idLibro:string, nuevaData:Libro){
+    return this.db.collection('libros').doc(idLibro).update(nuevaData)
+  }
+
+  /** OPCION DEL BOTON ELIMINAR CARD */
+  eliminarLibro(idLibro:string){
+    return new Promise((resolve, reject)=>{
+      try{
+        const resp = this.libroCollection.doc(idLibro).delete()
+        resolve(resp)
+      }
+      catch(error){
+        reject(error)
+      }
+    })
   }
 }

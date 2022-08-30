@@ -6,23 +6,51 @@
 <app-carousel [misImagenes]="imagenes"></app-carousel>
 
 <h1>ABAJO ESTÁ EL FIREBASE CON LOS CARD DE LIBROS</h1>
-<p-card header="Titulo" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-    <ng-template pTemplate="header">
-        
-    </ng-template>
-    <p *ngFor="let libro of coleccionDeLibros">{{libro.titulo}}</p>
-</p-card>
 
-<p-card header="Autor" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-    <ng-template pTemplate="header">
-        
-    </ng-template>
-    <p *ngFor="let libro of coleccionDeLibros">{{libro.autor}}</p>
-</p-card>
+<section>
+    <div class="row">
+        <div class="col-3">
+            <p-card *ngFor="let libro of coleccionDeLibros" header="Informacion Libro" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
+                <ng-template pTemplate="header">
+                    
+                </ng-template>
+                <p >{{libro.titulo}}</p>
+                <p >{{libro.autor}}</p>
+                <p >{{libro.editorial}}</p>
+                <p >{{libro.ISBN}}</p>
+                <button pButton class="p-button-success" label="Agregar" (click)="mostrarEditar(libro)" style="margin: 20px;"></button>    
+                <button pButton class="p-button-success" label="Eliminar" style="margin: 20px;"></button>  
+            </p-card>
+        </div>
 
-<p-card header="Editorial" [style]="{'width': '25rem', 'margin-bottom': '2em'}">
-    <ng-template pTemplate="header">
-        
-    </ng-template>
-    <p *ngFor="let libro of coleccionDeLibros">{{libro.editorial}}</p>
-</p-card>
+       
+    </div>
+</section>
+
+
+
+<p-dialog header="Agregar Libro" [(visible)]="modalVisible">
+    <form [formGroup]="libro">
+        <span class="p-float-label">
+            <input id="float-input" type="text" pInputText formControlName="titulo"> 
+            <label for="float-input">Titulo</label>
+        </span>    
+        <span class="p-float-label">
+            <input id="float-input" type="text" pInputText formControlName="autor"> 
+            <label for="float-input">Autor</label>
+        </span>    
+        <span class="p-float-label">
+            <input id="float-input" type="text" pInputText formControlName="editorial"> 
+            <label for="float-input">Editorial</label>
+        </span>    
+        <span class="p-float-label">
+            <input id="float-input" type="number" pInputText formControlName="ISBN"> 
+            <label for="float-input">ISBN</label>
+        </span>  
+        <button pButton class="p-button-success" label="{{textoBoton}}" (click)="cargarDatos()"></button>    
+    </form>
+   
+</p-dialog>
+
+<button pButton class="p-button-success" label="Agregar Libro" (click)="mostrarDialogo()"></button>
+
