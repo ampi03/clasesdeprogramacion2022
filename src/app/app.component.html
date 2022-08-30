@@ -51,6 +51,12 @@
     </form>
    
 </p-dialog>
+<!---->
+<p-dialog header="¡¡¡Advertencia!!!" [(visible)]="eliminarVisible">
+    <p>¿Deseas eliminar este libro?</p>
+    <button pButton class="p-button-success" label="Agregar"></button>    
+    <button pButton class="p-button-success" label="Eliminar"></button>  
+</p-dialog>
 
 <button pButton class="p-button-success" label="Agregar Libro" (click)="mostrarDialogo()"></button>
 

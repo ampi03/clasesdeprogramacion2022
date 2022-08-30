@@ -112,7 +112,7 @@ export class AppComponent {
   textoBoton:string;
   
   /** ELIMINAR OPCION */
-  
+  eliminarVisible:boolean = false;
 
 
   
